@@ -1,12 +1,17 @@
+import { myTheme } from "./theme";
+import { ThemeProvider } from "@mui/material";
 import Button from "@mui/material/Button";
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="contained" color="info">
-        Hello World
+    <ThemeProvider theme={myTheme}>
+      <Button variant="contained" color="primary">
+        primary
       </Button>
-    </div>
+      <Button variant="contained" color="secondary">
+        secondary
+      </Button>
+    </ThemeProvider>
   );
 }
 
