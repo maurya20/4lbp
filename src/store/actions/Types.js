@@ -1,2 +1,2 @@
-export const BG_CHANGE_FAIL = "BG_CHANGE_FAIL";
-export const BG_CHANGE_SUCCESS = "BG_CHANGE_SUCCESS";
+export const CHANGE_BG = "CHANGE_BG";
+export const BG_CHANGED = "BG_CHANGED";
