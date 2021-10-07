@@ -1,41 +1,44 @@
 import { myTheme } from "./theme";
 import { ThemeProvider } from "@mui/material";
 import Button from "@mui/material/Button";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { changeBg } from "./store/actions/BgAction";
 function App() {
-  const [bg, setBg] = useState("#000000");
-  const bgStyle = {
-    background: bg,
-    height: "100vh",
-  };
+  const { bg } = useSelector((state) => state.bg);
+  console.log("mkmxmkssk", bg);
+
+  const dispatch = useDispatch();
+
   return (
     <ThemeProvider theme={myTheme}>
-      <div style={bgStyle}>
+      <div style={{ backgroundColor: bg, height: "100vh" }}>
         <Button
           variant="contained"
           color="primary"
-          onClick={() => setBg(myTheme.palette.primary.main)}
+          onClick={() => dispatch(changeBg(myTheme.palette.primary.main))}
         >
           primary
         </Button>
         <Button
           variant="contained"
           color="secondary"
-          onClick={() => setBg(myTheme.palette.secondary.main)}
+          onClick={() => dispatch(changeBg(myTheme.palette.secondary.main))}
         >
           secondary
         </Button>
         <Button
           variant="contained"
           color="negative"
-          onClick={() => setBg(myTheme.palette.negative.main)}
+          onClick={() => dispatch(changeBg(myTheme.palette.negative.main))}
         >
           negative
         </Button>
         <Button
+          style={{ color: "#ffff" }}
           variant="contained"
           color="pureblack"
-          onClick={() => setBg(myTheme.palette.pureblack.main)}
+          onClick={() => dispatch(changeBg(myTheme.palette.pureblack.main))}
         >
           pure black
         </Button>

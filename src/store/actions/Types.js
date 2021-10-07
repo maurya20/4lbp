@@ -1,0 +1,2 @@
+export const BG_CHANGE_FAIL = "BG_CHANGE_FAIL";
+export const BG_CHANGE_SUCCESS = "BG_CHANGE_SUCCESS";
