@@ -1,6 +1,28 @@
 import { FormControlLabel, Switch } from "@mui/material";
 import React, { useState } from "react";
+import { withStyles } from "@mui/styles";
 
+const MySwitch = withStyles({
+  switchBase: {
+    color: "#ffff",
+    top: 0,
+    bottom: 3,
+    opacity: 1,
+    "&$checked": {
+      color: "#ffff",
+      opacity: 1,
+    },
+    "&$checked + $track": {
+      backgroundColor: "transparent",
+      opacity: 0,
+    },
+    "&.MuiSwitch-colorSecondary.Mui-disabled + .MuiSwitch-track": {
+      backgroundColor: "transparent",
+    },
+  },
+  checked: {},
+  track: { backgroundColor: "transparent" },
+})(Switch);
 export const Switches = () => {
   const [checked, setchecked] = useState(true);
   const handleChange = () => {
@@ -16,14 +38,13 @@ export const Switches = () => {
           background: "red",
           borderRadius: "15px",
           padding: "5px",
-          margin: "3px",
         }}
-        onChange={handleChange}
       >
         <FormControlLabel
           value={checked ? "yes" : "no"}
           control={
-            <Switch
+            <MySwitch
+              onChange={handleChange}
               checked={checked}
               color="secondary"
               disableTouchRipple
