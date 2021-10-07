@@ -1,49 +1,59 @@
-import { myTheme } from "./theme";
-import { ThemeProvider } from "@mui/material";
-import Button from "@mui/material/Button";
+import { BlTheme } from "./theme";
+import { ThemeProvider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { changeBg } from "./store/actions/BgAction";
-import { Switches } from "./components";
+import { BlButton, BlSwitch } from "./components";
 function App() {
   const { bg } = useSelector((state) => state.bg);
-  console.log("mkmxmkssk", bg);
-
   const dispatch = useDispatch();
 
   return (
-    <ThemeProvider theme={myTheme}>
+    <ThemeProvider theme={BlTheme}>
       <div style={{ backgroundColor: bg, height: "100vh" }}>
-        <Button
-          variant="contained"
+        <Typography variant="h3" color="Highlight">
+          Buttons
+        </Typography>
+        <BlButton
           color="primary"
-          onClick={() => dispatch(changeBg(myTheme.palette.primary.main))}
+          variant="contained"
+          onClick={() => dispatch(changeBg(BlTheme.palette.primary.main))}
         >
-          primary
-        </Button>
-        <Button
+          Primary
+        </BlButton>
+
+        <BlButton
           variant="contained"
           color="secondary"
-          onClick={() => dispatch(changeBg(myTheme.palette.secondary.main))}
+          onClick={() => dispatch(changeBg(BlTheme.palette.secondary.main))}
         >
           secondary
-        </Button>
-        <Button
+        </BlButton>
+        <BlButton
           variant="contained"
           color="negative"
-          onClick={() => dispatch(changeBg(myTheme.palette.negative.main))}
+          onClick={() => dispatch(changeBg(BlTheme.palette.negative.main))}
         >
           negative
-        </Button>
-        <Button
+        </BlButton>
+        <BlButton
           style={{ color: "#ffff" }}
           variant="contained"
           color="pureblack"
-          onClick={() => dispatch(changeBg(myTheme.palette.pureblack.main))}
+          onClick={() => dispatch(changeBg(BlTheme.palette.pureblack.main))}
         >
           pure black
-        </Button>
-        <Switches />
+        </BlButton>
+        <Typography variant="h3" color="Highlight">
+          Swithes
+        </Typography>
+        <BlSwitch checked={false} onText="Yes" offText="No" />
+        <br />
+        <BlSwitch checked onText="On" offText="Off" />
+        <br />
+        <BlSwitch checked onText="  " offText="   " />
+        <br />
+        <BlSwitch disabled onText="  " offText="   " />
       </div>
     </ThemeProvider>
   );

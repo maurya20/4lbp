@@ -1,1 +1,2 @@
-export * from "./Switches";
+export * from "./BlSwitch";
+export * from "./BlButton";

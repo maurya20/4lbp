@@ -1,6 +1,7 @@
 import { FormControlLabel, Switch } from "@mui/material";
 import React, { useState } from "react";
 import { withStyles } from "@mui/styles";
+import { BlTheme } from "../theme";
 
 const MySwitch = withStyles({
   switchBase: {
@@ -8,6 +9,7 @@ const MySwitch = withStyles({
     top: 0,
     bottom: 3,
     opacity: 1,
+    float: "left",
     "&$checked": {
       color: "#ffff",
       opacity: 1,
@@ -23,39 +25,42 @@ const MySwitch = withStyles({
   checked: {},
   track: { backgroundColor: "transparent" },
 })(Switch);
-export const Switches = () => {
-  const [checked, setchecked] = useState(true);
+export const BlSwitch = (props) => {
+  const { checked, onText, offText } = props;
+  const [on, setOn] = useState(checked);
   const handleChange = () => {
-    setchecked((prev) => !prev);
+    setOn((prev) => !prev);
   };
   return (
-    <div>
+    <>
       <span
-        role="button"
         style={{
-          width: "50px",
-          height: "50px",
-          background: "red",
+          background: on
+            ? BlTheme.palette.secondary.main
+            : BlTheme.palette.negative.main,
+          backgroundColor: props.disabled
+            ? BlTheme.palette.darkgray.main
+            : "none",
           borderRadius: "15px",
           padding: "5px",
         }}
       >
         <FormControlLabel
-          value={checked ? "yes" : "no"}
+          style={{ color: "#ffff" }}
           control={
             <MySwitch
               onChange={handleChange}
-              checked={checked}
-              color="secondary"
               disableTouchRipple
               disableFocusRipple
               disableRipple
+              checked={on}
+              disabled={props.disabled || false}
             />
           }
-          label={checked ? "Yes" : "No"}
-          labelPlacement={checked ? "start" : "end"}
+          label={on ? onText : offText}
+          labelPlacement={on ? "start" : "end"}
         />
       </span>
-    </div>
+    </>
   );
 };
