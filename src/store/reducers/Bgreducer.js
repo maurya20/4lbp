@@ -1,6 +1,6 @@
 import { BG_CHANGED } from "../actions/Types";
 
-export const bgReducer = (state = { bg: "red" }, action) => {
+export const bgReducer = (state = { bg: "#ffff" }, action) => {
   const { type, payload } = action;
 
   switch (type) {

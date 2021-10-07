@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { changeBg } from "./store/actions/BgAction";
+import { Switches } from "./components";
 function App() {
   const { bg } = useSelector((state) => state.bg);
   console.log("mkmxmkssk", bg);
@@ -42,6 +43,7 @@ function App() {
         >
           pure black
         </Button>
+        <Switches />
       </div>
     </ThemeProvider>
   );
