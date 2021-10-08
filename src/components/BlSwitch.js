@@ -54,6 +54,7 @@ export const BlSwitch = (props) => {
             minWidth: "85px",
             maxWidth: "85px",
             maxHeight: "20px",
+            cursor: props.disabled ? "not-allowed" : "auto",
           }}
           control={
             <MySwitch

@@ -8,7 +8,6 @@ export const Switches = () => {
         border: "2px dashed blue",
         justifyContent: "space-between",
         alignContent: "space-between",
-
         width: "15%",
         borderRadius: "10px",
         padding: "15px",
