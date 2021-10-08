@@ -15,6 +15,9 @@ export const BlTheme = createTheme({
     pureblack: {
       main: "#000000",
     },
+    purewhite: {
+      main: "#FFFFFF",
+    },
     darkgray: {
       main: "#D8D8D8",
     },

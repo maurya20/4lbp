@@ -3,7 +3,7 @@ import { ThemeProvider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { changeBg } from "./store/actions/BgAction";
-import { BlButton, BlSwitch } from "./components";
+import { BlButton, BlCheckbox, BlSwitch } from "./components";
 function App() {
   const { bg } = useSelector((state) => state.bg);
   const dispatch = useDispatch();
@@ -21,7 +21,20 @@ function App() {
         >
           Primary
         </BlButton>
-
+        <BlButton
+          color="primary"
+          variant="outlined"
+          onClick={() => dispatch(changeBg(BlTheme.palette.purewhite.main))}
+        >
+          Outlined
+        </BlButton>
+        <BlButton
+          color="primary"
+          variant="text"
+          onClick={() => dispatch(changeBg(BlTheme.palette.purewhite.main))}
+        >
+          Text
+        </BlButton>
         <BlButton
           variant="contained"
           color="secondary"
@@ -54,6 +67,8 @@ function App() {
         <BlSwitch checked onText="  " offText="   " />
         <br />
         <BlSwitch disabled onText="  " offText="   " />
+        <BlCheckbox color="secondary" />
+        <BlCheckbox color="secondary" defaultChecked />
       </div>
     </ThemeProvider>
   );

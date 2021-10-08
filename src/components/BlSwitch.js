@@ -46,7 +46,7 @@ export const BlSwitch = (props) => {
         }}
       >
         <FormControlLabel
-          style={{ color: "#ffff" }}
+          style={{ color: "#ffff", minWidth: "80px" }}
           control={
             <MySwitch
               onChange={handleChange}
