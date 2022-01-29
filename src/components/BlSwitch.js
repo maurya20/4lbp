@@ -18,9 +18,9 @@ const MySwitch = withStyles({
       backgroundColor: "transparent",
       opacity: 0,
     },
-    "&.MuiSwitch-colorSecondary.Mui-disabled + .MuiSwitch-track": {
-      backgroundColor: "transparent",
-    },
+    // "&.MuiSwitch-colorSecondary.Mui-disabled + .MuiSwitch-track": {
+    //   backgroundColor: "transparent",
+    // },
   },
   checked: {},
   track: { backgroundColor: "transparent" },
