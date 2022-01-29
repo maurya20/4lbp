@@ -15,7 +15,14 @@ export const Title = () => {
   }
 
   return state != null ? (
-    <div>
+    <div
+      style={{
+        margin: "10px",
+        border: "2px solid green",
+        borderRadius: "15px",
+        padding: "10px",
+      }}
+    >
       {state &&
         state?.map((v, i) => {
           return <h3 key={i}>{v.title}</h3>;
